@@ -1,0 +1,171 @@
+ANT_HOME=/usr/local/apache-ant-1.9.4
+Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.oIfqwBaWjp/Render
+BASH=/bin/bash
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_LINENO=()
+BASH_REMATCH=([0]="n")
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="3" [1]="2" [2]="57" [3]="1" [4]="release" [5]="x86_64-apple-darwin15")
+BASH_VERSION='3.2.57(1)-release'
+COLUMNS=80
+DIRSTACK=()
+DISPLAY=/private/tmp/com.apple.launchd.jgQJJgYTx0/org.macosforge.xquartz:0
+EUID=503
+GRAILS_HOME=/usr/lib/grails-2.4.4/
+GROOVY_HOME=/usr/local/groovy
+GROUPS=()
+HISTFILE=/Users/mjohnson/.bash_sessions/BE48308C-6D45-4BA8-962D-1284FD9EE765.historynew
+HISTFILESIZE=500
+HISTSIZE=500
+HOME=/Users/mjohnson
+HOSTNAME=HW10424
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home
+LANG=en_US.UTF-8
+LINES=24
+LOGNAME=mjohnson
+M2_HOME=/usr/local/maven/apache-maven-3.1.1
+MACHTYPE=x86_64-apple-darwin15
+MAILCHECK=60
+MYSQL_HOME=/usr/local/mysql
+OPTERR=1
+OPTIND=1
+OSTYPE=darwin15
+PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin:/opt/local/bin:/opt/local/sbin:/usr/sbin/groovy/bin:/usr/local/mysql/bin::/usr/local/apache-ant-1.9.4/bin:/usr/lib/grails-2.4.4//bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/usr/local/maven/apache-maven-3.1.1/bin:/bin:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/bin
+PIPESTATUS=([0]="127")
+PPID=3842
+PROMPT_COMMAND=update_terminal_cwd
+PS1='[\t \H] \w  \n$'
+PS2='> '
+PS4='+ '
+PWD=/Users/mjohnson
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:emacs:hashall:histexpand:history:interactive-comments:monitor
+SHELL_SESSION_DID_HISTORY_CHECK=1
+SHELL_SESSION_DID_INIT=1
+SHELL_SESSION_DIR=/Users/mjohnson/.bash_sessions
+SHELL_SESSION_FILE=/Users/mjohnson/.bash_sessions/BE48308C-6D45-4BA8-962D-1284FD9EE765.session
+SHELL_SESSION_HISTFILE=/Users/mjohnson/.bash_sessions/BE48308C-6D45-4BA8-962D-1284FD9EE765.history
+SHELL_SESSION_HISTFILE_NEW=/Users/mjohnson/.bash_sessions/BE48308C-6D45-4BA8-962D-1284FD9EE765.historynew
+SHELL_SESSION_HISTFILE_SHARED=/Users/mjohnson/.bash_history
+SHELL_SESSION_HISTORY=1
+SHELL_SESSION_TIMESTAMP_FILE=/Users/mjohnson/.bash_sessions/_expiration_check_timestamp
+SHLVL=1
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yFpnafCCbj/Listeners
+TERM=xterm-256color
+TERM_PROGRAM=Apple_Terminal
+TERM_PROGRAM_VERSION=361.1
+TERM_SESSION_ID=BE48308C-6D45-4BA8-962D-1284FD9EE765
+TMPDIR=/var/folders/dl/h2s1hpgj0mv38bdk3yy426y40000gq/T/
+UID=503
+USER=mjohnson
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+_=ansible
+__CF_USER_TEXT_ENCODING=0x1F7:0x0:0x0
+shell_session_delete_expired () 
+{ 
+    if ( [ ! -e "$SHELL_SESSION_TIMESTAMP_FILE" ] || [ -z $(find "$SHELL_SESSION_TIMESTAMP_FILE" -mtime -1d) ] ); then
+        local expiration_lock_file="$SHELL_SESSION_DIR/_expiration_lockfile";
+        if shlock -f "$expiration_lock_file" -p $$; then
+            echo -n 'Deleting expired sessions...';
+            local delete_count=$(find "$SHELL_SESSION_DIR" -type f -mtime +2w -print -delete | wc -l);
+            [ "$delete_count" -gt 0 ] && echo $delete_count' completed.' || echo 'none found.';
+            touch "$SHELL_SESSION_TIMESTAMP_FILE";
+            rm "$expiration_lock_file";
+        fi;
+    fi
+}
+shell_session_history_allowed () 
+{ 
+    if [ -n "$HISTFILE" ]; then
+        local allowed=0;
+        if shopt -q histappend || [ -n "$HISTTIMEFORMAT" ]; then
+            allowed=${SHELL_SESSION_HISTORY:-0};
+        else
+            allowed=${SHELL_SESSION_HISTORY:=1};
+        fi;
+        if [ $allowed -eq 1 ]; then
+            return 0;
+        fi;
+    fi;
+    return 1
+}
+shell_session_history_check () 
+{ 
+    if [ ${SHELL_SESSION_DID_HISTORY_CHECK:-0} -eq 0 ]; then
+        SHELL_SESSION_DID_HISTORY_CHECK=1;
+        if shell_session_history_allowed; then
+            shell_session_history_enable;
+        fi;
+        if [ "$PROMPT_COMMAND" = "shell_session_history_check" ]; then
+            unset PROMPT_COMMAND;
+        else
+            if [[ $PROMPT_COMMAND =~ (.*)(; *shell_session_history_check *| *shell_session_history_check *; *)(.*) ]]; then
+                PROMPT_COMMAND="${BASH_REMATCH[1]}${BASH_REMATCH[3]}";
+            fi;
+        fi;
+    fi
+}
+shell_session_history_enable () 
+{ 
+    touch "$SHELL_SESSION_HISTFILE_NEW";
+    HISTFILE="$SHELL_SESSION_HISTFILE_NEW";
+    SHELL_SESSION_HISTORY=1
+}
+shell_session_save () 
+{ 
+    if [ -n "$SHELL_SESSION_FILE" ]; then
+        echo -n 'Saving session...';
+        echo echo Restored session: $(date) >|"$SHELL_SESSION_FILE";
+        declare -F shell_session_save_user_state > /dev/null && shell_session_save_user_state;
+        shell_session_history_allowed && shell_session_save_history;
+        echo 'completed.';
+    fi
+}
+shell_session_save_history () 
+{ 
+    shell_session_history_enable;
+    history -a;
+    if [ -f "$SHELL_SESSION_HISTFILE_SHARED" ] && [ ! -s "$SHELL_SESSION_HISTFILE" ]; then
+        echo -ne '\n...copying shared history...';
+        cp "$SHELL_SESSION_HISTFILE_SHARED" "$SHELL_SESSION_HISTFILE";
+    fi;
+    echo -ne '\n...saving history...';
+    cat "$SHELL_SESSION_HISTFILE_NEW" >> "$SHELL_SESSION_HISTFILE_SHARED";
+    cat "$SHELL_SESSION_HISTFILE_NEW" >> "$SHELL_SESSION_HISTFILE";
+    : >|"$SHELL_SESSION_HISTFILE_NEW";
+    if [ -n "$HISTFILESIZE" ]; then
+        echo -n 'truncating history files...';
+        HISTFILE="$SHELL_SESSION_HISTFILE_SHARED";
+        HISTFILESIZE="$HISTFILESIZE";
+        HISTFILE="$SHELL_SESSION_HISTFILE";
+        HISTFILESIZE="$size";
+        HISTFILE="$SHELL_SESSION_HISTFILE_NEW";
+    fi;
+    echo -ne '\n...'
+}
+shell_session_update () 
+{ 
+    shell_session_save && shell_session_delete_expired
+}
+update_terminal_cwd () 
+{ 
+    local url_path='';
+    { 
+        local i ch hexch LC_CTYPE=C LC_ALL=;
+        for ((i = 0; i < ${#PWD}; ++i))
+        do
+            ch="${PWD:i:1}";
+            if [[ "$ch" =~ [/._~A-Za-z0-9-] ]]; then
+                url_path+="$ch";
+            else
+                printf -v hexch "%02X" "'$ch";
+                url_path+="%${hexch: -2:2}";
+            fi;
+        done
+    };
+    printf '\e]7;%s\a' "file://$HOSTNAME$url_path"
+}

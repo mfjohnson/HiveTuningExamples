@@ -1,0 +1,17 @@
+---
+- hosts: hive
+  name: Load all Hive Tuning examples to Hive server
+  serial: 10
+  remote_user: hive
+  vars:
+#    hdpRepo: http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.0.2/ambari.repo
+     hdpRepo: http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.1.2.1/ambari.repo
+#    hdpRepo: http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.0.1/ambari.repo
+  tasks:
+  - name: Setup up Ambari repository
+    command: "wget -nv {{ hdpRepo }} -O /etc/yum.repos.d/ambari.repo"
+  - name: Add HDP Ambari assumed components
+    yum: name={{item.name}} state=latest
+    with_items:
+    - { name: 'wget'}
+    - { name: 'unzip'}
